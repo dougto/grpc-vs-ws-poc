@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+message GetAnalysisRequest {
+  string reqData = 1;
+}
+
+message GetAnalysisResponse {
+  string analysisData = 1;
+}
+
+message GetEvaluationsRequest {
+  string reqData = 1;
+}
+
+message GetEvaluationsReponse {
+  string evaluationData = 1;
+}
+
+message GetEvaluationsEndResponse {
+}
+
+message WsMessage {
+  string messageId = 1;
+
+  oneof message {
+    GetAnalysisRequest getAnalysisRequest = 2;
+    GetAnalysisResponse getAnalysisResponse = 3;
+    GetEvaluationsRequest getEvaluationsRequest = 4;
+    GetEvaluationsReponse getEvaluationsReponse = 5;
+    GetEvaluationsEndResponse getEvaluationsEndResponse = 6;
+  }
+}

@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+message GetAnalysisRequest {
+  string req_data = 1;
+}
+
+message GetAnalysisResponse {
+  string analysis_data = 1;
+}
+
+message GetEvaluationsRequest {
+  string req_data = 1;
+}
+
+message GetEvaluationsReponse {
+  string evaluation_data = 1;
+}
+
+service SampleService {
+  rpc GetAnalysis(GetAnalysisRequest) returns (GetAnalysisResponse);
+  rpc GetEvaluations(GetEvaluationsRequest) returns (stream GetEvaluationsReponse);
+}
